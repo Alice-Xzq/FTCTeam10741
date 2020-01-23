@@ -1,0 +1,60 @@
+package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.util.Range;
+//import java.lang.system.*;
+
+@Autonomous
+@Disabled
+public class Drive {
+
+    Hardware robot = new Hardware();
+    double speedx;
+    double speedy;
+    double offset;
+
+    public void init(){
+
+    }
+
+    public void driveWithoutEncoder(double powerx, double powery, double turn){
+        speedx =  powerx;
+        speedy =  - powery;
+        offset =  turn;
+        robot.leftFront.setPower(Range.clip(speedy-speedx+offset,-1,1));
+        robot.rightFront.setPower(Range.clip(speedy+speedx-offset,-1,1));
+        robot.leftBack.setPower(Range.clip(speedy+speedx+offset,-1,1));
+        robot.rightBack.setPower(Range.clip(speedy-speedx-offset,-1,1));
+    }
+
+    public void stop(){
+        driveWithoutEncoder(0,0,0);
+    }
+
+    public void driveWithEncoder(double xDistance, double yDistance, double turnAngle ) {
+
+    }
+
+    public void liftClaw(){
+//        if(robot.claw.getPosition() == ){
+//
+//        }
+//        robot.claw.setPosition();
+    }
+
+    public void closeClaw(){
+        liftClaw();
+//        robot.claw.setPosition();
+    }
+
+
+    public void setElevatorPower(double power){
+        robot.elevator.setPower(power);
+    }
+
+    public void stopElevator(){
+        robot.elevator.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
+
+}
