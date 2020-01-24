@@ -20,10 +20,10 @@ public class DriveTrainEncoder
     private ElapsedTime runtime = new ElapsedTime();
 
 
-    double     COUNTS_PER_MOTOR_REV    = 1440 ;    // eg: TETRIX Motor Encoder
-    double     DRIVE_GEAR_REDUCTION    = 1.0 ;     // This is < 1.0 if geared UP
-    double     WHEEL_DIAMETER_MM       = 100.0 ;     // For figuring circumference
-    double     WHEEL_DIAGONAL_DISTANCE  = 450.0 ;     // for the  distance between two diagonal wheel
+    double     COUNTS_PER_MOTOR_REV    = 1440;    // eg: TETRIX Motor Encoder
+    double     DRIVE_GEAR_REDUCTION    = 1.0;     // This is < 1.0 if geared UP
+    double     WHEEL_DIAMETER_MM       = 100.0;     // For figuring circumference
+    double     WHEEL_DIAGONAL_DISTANCE  = 450.0;     // for the  distance between two diagonal wheel
     double     COUNTS_PER_MM           = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_MM * 3.1415);
     double     DEGREE_CORRECTION       = 1.543;
     double     LINE_CORRECTION         = 1.0;
@@ -54,14 +54,14 @@ public class DriveTrainEncoder
         //drive_gear_reduction = 1.0
         //wheel_diagonal_distance = 450.
         //wheel_diameter = 100.
-        COUNTS_PER_MOTOR_REV = config.getDouble("counts_per_motor_rev", 1440);
-        DRIVE_GEAR_REDUCTION = config.getDouble("drive_gear_reduction",1.0);
-        WHEEL_DIAGONAL_DISTANCE = config.getDouble("wheel_diagonal_distance", 450.);
-        WHEEL_DIAMETER_MM = config.getDouble("wheel_diameter", 100.);
-        DEGREE_CORRECTION = config.getDouble("degree_correction", 1.543);
-        LINE_CORRECTION = config.getDouble("line_correction", 1.);
-        XY_CORRECTION = config.getDouble("xy_correction", 1.2);
-        COUNTS_PER_MM           = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_MM * 3.1415) * LINE_CORRECTION;
+//        COUNTS_PER_MOTOR_REV = config.getDouble("counts_per_motor_rev", 1440);
+//        DRIVE_GEAR_REDUCTION = config.getDouble("drive_gear_reduction",1.0);
+//        WHEEL_DIAGONAL_DISTANCE = config.getDouble("wheel_diagonal_distance", 450.);
+//        WHEEL_DIAMETER_MM = config.getDouble("wheel_diameter", 100.);
+//        DEGREE_CORRECTION = config.getDouble("degree_correction", 1.543);
+//        LINE_CORRECTION = config.getDouble("line_correction", 1.);
+//        XY_CORRECTION = config.getDouble("xy_correction", 1.2);
+        COUNTS_PER_MM           = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_MM * 3.1415924) * LINE_CORRECTION;
         COUNTS_PER_DEGREE       = WHEEL_DIAGONAL_DISTANCE / WHEEL_DIAMETER_MM  * COUNTS_PER_MOTOR_REV / 360. * DEGREE_CORRECTION;
 
 
